@@ -1,0 +1,8 @@
+/__pycache__/
+
+/configs/.env
+/configs/json/
+
+/data/
+
+/models/

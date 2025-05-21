@@ -1,0 +1,256 @@
+/* 基本样式 */
+body {
+    background-color: #fff5f7;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 2rem;
+}
+
+.container {
+    width: 98%;
+    max-width: 1600px;
+}
+
+/* 标题区域样式 */
+.title-area {
+    background: linear-gradient(135deg, #ffffff 0%, #fff0f3 50%, #f0f9ff 100%);
+    border-radius: 24px;
+    padding: 3.5rem 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.15);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 182, 193, 0.2);
+}
+
+.title-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 50%, #a1c4fd 100%);
+    opacity: 0.8;
+}
+
+.title-area h1 {
+    margin-bottom: 1.2rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(120deg, #4a90e2, #ff9a9e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 15px rgba(255, 182, 193, 0.1);
+}
+
+.title-area p {
+    color: #6c7a89;
+    font-size: 1.15rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+    background-color: #fff;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255, 182, 193, 0.15);
+}
+
+/* 系统设置卡片样式 */
+.settings-card {
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.settings-card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-card .card-header {
+    background: linear-gradient(135deg, #a1c4fd 0%, #ff9a9e 100%);
+    color: #fff;
+}
+
+#emailContainer {
+    margin-top: 1rem;
+    min-height: 140px;
+}
+
+/* 系统信息卡片样式 */
+.info-card {
+    margin-bottom: 0;
+}
+
+#emailContainer .input-group {
+    margin-bottom: 10px !important;
+    height: 38px;
+}
+
+.card-header {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+}
+
+/* 邮箱输入框样式 */
+#emailContainer .input-group {
+    transition: all 0.3s ease;
+    margin-bottom: 10px !important;
+}
+
+#emailContainer .input-group-text {
+    width: 40px;
+    justify-content: center;
+    background-color: #27ae60;
+    color: white;
+    font-weight: bold;
+    border-color: #27ae60;
+}
+
+#emailContainer .remove-email {
+    width: 42px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 0.375rem 0.5rem;
+    transition: all 0.2s ease;
+}
+
+#emailContainer .remove-email:hover {
+    background-color: #e74c3c;
+    color: white;
+    border-color: #e74c3c;
+}
+
+/* 终端区域样式 */
+.terminal {
+    background-color: #282c34;
+    color: #abb2bf;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    padding: 20px;
+    border-radius: 12px;
+    height: 626px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 定义滚动条样式 */
+.terminal::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.terminal::-webkit-scrollbar-track {
+    background: #21252b;
+}
+
+.terminal::-webkit-scrollbar-thumb {
+    background-color: #4d5566;
+    border-radius: 10px;
+    border: 2px solid #282c34;
+}
+
+.terminal::-webkit-scrollbar-thumb:hover {
+    background-color: #5c6370;
+}
+
+/* 输出样式 */
+.output {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* 输出中的特殊文本标记 */
+.output .success {
+    color: #98c379;
+}
+
+.output .error {
+    color: #e06c75;
+}
+
+.output .warning {
+    color: #e5c07b;
+}
+
+.output .info {
+    color: #61afef;
+}
+
+/* 添加邮箱输入框的动画效果 */
+.d-none {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#emailContainer .input-group:not(.d-none) {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 按钮样式 */
+.btn {
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    padding: 8px 16px;
+}
+
+#addEmailBtn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+}
+
+#addEmailBtn:hover {
+    background-color: #219a52;
+    transform: translateY(-1px);
+}
+
+/* 按钮图标与文本间距 */
+.btn i {
+    margin-right: 5px;
+}
+
+/* 加载中状态 */
+.running {
+    color: #61afef !important;
+    font-weight: bold;
+}
+
+.completed {
+    color: #98c379 !important;
+    font-weight: bold;
+}
+
+.idle {
+    color: #4a90e2 !important;
+    font-weight: normal;
+} 

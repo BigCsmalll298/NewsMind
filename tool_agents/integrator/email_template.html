@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f2f4f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 30px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-radius: 8px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .greeting {
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 8px;
+    }
+    .date {
+      font-size: 14px;
+      color: #999;
+    }
+
+    .domain-section {
+      margin-bottom: 32px;
+    }
+    .domain-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+    .domain-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    .article-count {
+      font-size: 14px;
+      color: #888;
+    }
+    .article-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .article-item {
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      padding: 10px 14px;
+      transition: background-color 0.2s ease;
+    }
+    .article-item:hover {
+      background-color: #f0f8ff;
+    }
+    .article-item a {
+      text-decoration: none;
+      color: #1a0dab;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .article-source {
+      font-size: 12px;
+      color: #999;
+      margin-left: 8px;
+    }
+
+    .footer {
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+    }
+    .quote {
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .system {
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .container {
+        padding: 20px 16px;
+      }
+      .domain-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="greeting">🌅 Good morning</div>
+      <div class="title">📰 {{ title }}</div>
+      <div class="date">📅 {{ date }}</div>
+    </div>
+
+    {% for domain, articles in filtered_articles.items() %}
+    <div class="domain-section">
+      <div class="domain-header">
+        <div class="domain-title">📌 {{ domain }} 新闻</div>
+        <div class="article-count">共 {{ articles|length }} 篇</div>
+      </div>
+      <div class="article-list">
+        {% for article in articles[:max_articles] %}
+        <div class="article-item">
+          <a href="{{ article.url }}" target="_blank">🧠 {{ article.title }}</a>
+          {% if article.source %}
+          <span class="article-source">（来源：点击文章标题进入源文章）</span>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    <div class="footer">
+      <div class="quote">💡「{{ random_quote }}」</div>
+      <div class="system">🤖 此邮件由 NewsMind · 多智能体新闻聚合系统自动生成</div>
+    </div>
+  </div>
+</body>
+</html>
