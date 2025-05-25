@@ -1,0 +1,10 @@
+dashscope==1.23.3
+feedparser==6.0.11
+Flask==3.1.1
+Jinja2==3.1.6
+llama_index==0.12.37
+python-dotenv==1.1.0
+qdrant_client==1.14.2
+Requests==2.32.3
+torch==2.7.0
+transformers==4.40.0
